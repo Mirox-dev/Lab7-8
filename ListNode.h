@@ -12,6 +12,6 @@ public:
     PCB data;
     ListNode* next;
 
-    ListNode(const PCB& data, ListNode* nextNode) : data(data), next(next) {}
+    ListNode(const PCB& pcb, ListNode* nextNode = nullptr) : data(pcb), next(nextNode) {}
 };
 #endif //LISTNODE_H
