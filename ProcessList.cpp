@@ -33,7 +33,7 @@ bool ProcessList::insert(const PCB &newPCB) {
     while (temp->next && temp->next->data.processID < newPCB.processID) {
         temp = temp->next;
     }
-    if (temp->data.processID == newPCB.processID) {
+    if (temp->next->data.processID == newPCB.processID) {
         return false;
     }
     auto* newNode = new ListNode(newPCB);
@@ -51,13 +51,15 @@ bool ProcessList::remove(const int pid) {
         delete temp;
         return true;
     }
-    while (temp && temp->data.processID != pid) {
+    while (temp->next && temp->next->data.processID != pid) {
         temp = temp->next;
     }
-    if (!temp) {
+    if (!temp->next) {
         return false;
     }
-    delete temp;
+    ListNode* Delete = temp->next;
+    temp->next = Delete->next;
+    delete Delete;
     return true;
 }
 void ProcessList::printList() const {

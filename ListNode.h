@@ -7,11 +7,13 @@
 
 #include "PCB.h"
 
+using namespace std;
+
 class ListNode {
 public:
     PCB data;
     ListNode* next;
 
-    ListNode(PCB& pcb, ListNode* nextNode = nullptr) : data(pcb), next(nextNode) {}
+    explicit ListNode(const PCB& pcb, ListNode* nextNode = nullptr) : data(pcb), next(nextNode) {}
 };
 #endif //LISTNODE_H
