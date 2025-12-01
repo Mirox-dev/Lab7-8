@@ -23,7 +23,7 @@ struct PCB {
     ProcessStatus processStatus;
     int commandCounter;
     vector<int> cpuRegisters;
-    PCB() : processID(0), processName(), processStatus(ProcessStatus::Stopped), commandCounter(0), cpuRegisters{} {}
+    PCB() : processID(0), processName(""), processStatus(ProcessStatus::Stopped), commandCounter(0), cpuRegisters{} {}
     PCB(int ID, string Name, ProcessStatus Status, int Counter, const vector<int>& Registers) :
         processID(ID), processName(move(Name)), processStatus(Status), commandCounter(Counter), cpuRegisters(Registers) {}
 };
