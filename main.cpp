@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "ProcessList.h"
+#include "ProcessList.cpp"
 
 using namespace std;
 
@@ -21,14 +22,9 @@ int main() {
     PCB_list.insert(p2);
     PCB_list.printList();
     PCB_list.remove(p2.processID);
-    cout << "Process list after removing process 2" << endl;
     PCB_list.printList();
-    if (!PCB_list.insert(p3)) {
-        cout << "Process list insert failed" << endl;
-    }
-    if (!PCB_list.remove(99)) {
-        cout << "Process list remove failed" << endl;
-    }
+    PCB_list.insert(p3);
+    PCB_list.remove(99);
     cout << "The final state of the list:" << endl;
     PCB_list.printList();
     return 0;
